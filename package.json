@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "docker": "sudo docker-compose build && sudo docker-compose up"
   },
-   "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/santiagoOrigel/myTinerary.git"
   },
