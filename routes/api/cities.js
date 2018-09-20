@@ -21,7 +21,7 @@ router.post("/register", (req, res) => {
       if (country) {
         return res.status(400).json({ email: "City already exists" });
       } else {
-        const neCity = new City({
+        const newCity = new City({
           name: req.body.name,
           country: req.body.country
         });
