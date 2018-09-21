@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
-    "docker": "sudo docker-compose build && sudo docker-compose up"
+    "docker": "docker-compose build && docker-compose up"
   },
   "repository": {
     "type": "git",

@@ -7,18 +7,18 @@ const router = express.Router();
 router.get("/test", (req, res) => res.json({ msg: "Cities Works" }));
 
 // Load City model
-const City = require("../../models/City");
+const User = require("../../models/City");
 
-// @route   POST api/cities/register
+// @route   GET api/cities/register
 // @desc    Register city
 // @access  Public
 router.post("/register", (req, res) => {
-  City.findOne({ name: req.body.name }).then(city => {
-    City.findOne({ country: req.body.country }).then(city => {
-      if (city) {
+  User.findOne({ name: req.body.name }).then(cityName => {
+    User.findOne({ country: req.body.country }).then(cityCountry => {
+      if (cityName && cityCountry) {
         return res.status(400).json({
           name: "City already exists in such Country.",
-          city: city
+          city: cityName
         });
       } else {
         const newCity = new City({
@@ -28,7 +28,7 @@ router.post("/register", (req, res) => {
 
         newCity
           .save()
-          .then(city => res.json(city))
+          .then(cityName => res.json(cityName))
           .catch(err => console.log(err));
       }
     });
@@ -40,9 +40,13 @@ router.post("/register", (req, res) => {
 // @access  Public
 router.get("/all", (req, res) => {
   const cities = [];
-  City.find().then(cities => {
-    res.json(cities);
-  });
+  const newCity = new City();
+  City.find()
+    .sort({ name: 1 })
+    .sort({ country: 1 })
+    .then(cities => {
+      res.json(cities).catch((err = res.status(404)));
+    });
 });
 
 module.exports = router;
