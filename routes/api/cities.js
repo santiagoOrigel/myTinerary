@@ -45,7 +45,7 @@ router.get("/all", (req, res) => {
     .sort({ name: 1 })
     .sort({ country: 1 })
     .then(cities => {
-      res.json(cities).catch((err = res.status(404)));
+      res.json(cities);
     });
 });
 

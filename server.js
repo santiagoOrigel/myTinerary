@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // DB Config
 const db = require("./config/keys").mongoURI;
 
-// Connect to MongoDB
+// Connect to MongoDB // TODO ensure this piece of code is always executed.
 mongoose
   .connect(
     db,
@@ -26,6 +26,12 @@ mongoose
   .catch(err => console.log(err));
 
 app.get("/", (req, res) => res.send("HELLO WORLD"));
+
+app.get("/", (req, res) => {
+  Item.find()
+    .then(items => res.render("index", { items }))
+    .catch(err => res.status(404).json({ msg: "No items found" }));
+});
 
 // Use Routes
 app.use("/api/users", users);
