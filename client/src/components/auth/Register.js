@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { registerUser } from "../../actions/authActions";
 
 class Register extends Component {
   constructor() {
@@ -22,30 +23,32 @@ class Register extends Component {
 
   onSubmit(e) {
     e.preventDefault();
+
     const newUser = {
       name: this.state.name,
       email: this.state.email,
-      eamail2: this.state.email2,
-      password: this.state.password
+      password: this.state.password,
+      password2: this.state.password2
     };
 
-    axios
-      .post("/api/users/register", newUser)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err));
+    this.props.registerUser(newUser, this.props.history);
   }
 
   render() {
+    const { errors } = this.state;
+
+    const { user } = this.props.auth;
+
     return (
       <div className="register">
+        <h1 className="display-4 text-center">WELCOME: </h1>
+        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
-              <p className="lead text-center">
-                Create your DevConnector account
-              </p>
-              <form onSubmit={this.onSubmit}>
+              <p className="lead text-center">Create your MyTinerary account</p>
+              <form noValidate onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
@@ -55,6 +58,9 @@ class Register extends Component {
                     value={this.state.name}
                     onChange={this.onChange}
                   />
+                  {errors.name && (
+                    <div className="invalid-feedback">{errors.name}</div>
+                  )}
                 </div>
                 <div className="form-group">
                   <input
@@ -99,4 +105,13 @@ class Register extends Component {
     );
   }
 }
-export default Register;
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(Register);

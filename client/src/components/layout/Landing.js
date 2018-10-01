@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { registerUser } from "../../actions/authActions";
+import { connect } from "react-redux";
 
 class Landing extends Component {
   render() {
+    const { user } = this.props.auth;
+
     return (
       <div className="landing">
-        <div className="dark-overlay landing-inner text-light">
+        {user ? user.name : null}
+        <div className="landing-inner text-light">
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
@@ -30,4 +35,13 @@ class Landing extends Component {
     );
   }
 }
-export default Landing;
+
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(Landing);
