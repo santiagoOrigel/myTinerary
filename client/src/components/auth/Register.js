@@ -37,12 +37,10 @@ class Register extends Component {
   render() {
     const { errors } = this.state;
 
-    const { user } = this.props.auth;
+    //const { user } = this.props.auth; NOT NEEDED BY NOW.
 
     return (
       <div className="register">
-        <h1 className="display-4 text-center">WELCOME: </h1>
-        {user ? user.name : null}
         <div className="container">
           <div className="row">
             <div className="col-md-8 m-auto">

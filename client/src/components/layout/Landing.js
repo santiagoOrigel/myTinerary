@@ -9,7 +9,11 @@ class Landing extends Component {
 
     return (
       <div className="landing">
-        {user ? user.name : null}
+        {user ? (
+          <h1 className="landing-inner text-light align:center">
+            WELCOME: {user.name}{" "}
+          </h1>
+        ) : null}
         <div className="landing-inner text-light">
           <div className="container">
             <div className="row">

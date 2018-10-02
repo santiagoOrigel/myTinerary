@@ -2,7 +2,7 @@ import { SUCCESS_REGISTRATION_DISPATCH } from "../actions/types";
 
 const initialState = {
   isAuthenticated: false,
-  user: {}
+  user: null
 };
 
 export default function(state = initialState, action) {

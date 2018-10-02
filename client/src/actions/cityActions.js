@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_CITIES, CITIES_LOADING, CLEAR_CITIES } from "./types";
+import { GET_CITIES } from "./types";
 
 //Get cities
 export const getCities = () => dispatch => {
@@ -18,18 +18,4 @@ export const getCities = () => dispatch => {
         payload: {}
       })
     );
-};
-
-// Cities Loading
-export const setCitiesLoading = () => {
-  return {
-    type: CITIES_LOADING
-  };
-};
-
-// Clear Cities
-export const clearCities = () => {
-  return {
-    type: CLEAR_CITIES
-  };
 };

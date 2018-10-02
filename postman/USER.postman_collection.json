@@ -1,57 +1,115 @@
 {
-	"info": {
-		"_postman_id": "30a7c218-e4ab-4654-b2a0-9a9f367dd314",
-		"name": "USER",
-		"description": "User's Actions",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
+	"id": "30a7c218-e4ab-4654-b2a0-9a9f367dd314",
+	"name": "USER",
+	"description": "User's Actions",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"e2deb4fe-e567-4a9b-8b0c-b644460a2ced",
+		"8aeac783-2eb6-494a-8410-7872c57fe81a",
+		"471161f8-ce26-4e07-a48f-14e604defca6"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
 		{
-			"name": "REGISTRATION",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "name",
-							"value": "santiago santander",
-							"type": "text"
-						},
-						{
-							"key": "email",
-							"value": "santiagorigel@yahoo.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "1234567",
-							"type": "text"
-						}
-					]
+			"id": "471161f8-ce26-4e07-a48f-14e604defca6",
+			"name": "all cities",
+			"url": "http://localhost:5000/api/cities/all",
+			"description": "all cities",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "8aeac783-2eb6-494a-8410-7872c57fe81a",
+			"name": "city registration",
+			"url": "http://localhost:5000/api/cities/register",
+			"description": "city registration",
+			"data": [
+				{
+					"key": "name",
+					"value": "kansas city",
+					"description": "",
+					"type": "text",
+					"enabled": true
 				},
-				"url": {
-					"raw": "http://localhost:5000/api/users/register",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"users",
-						"register"
-					]
+				{
+					"key": "country",
+					"value": "unites states",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e2deb4fe-e567-4a9b-8b0c-b644460a2ced",
+			"name": "user registration",
+			"url": "http://localhost:80/api/users/register",
+			"description": "user registration",
+			"data": [
+				{
+					"key": "name",
+					"value": "nathan benjamin",
+					"description": "",
+					"type": "text",
+					"enabled": true
 				},
-				"description": "user registration"
-			},
-			"response": []
+				{
+					"key": "email",
+					"value": "nathan@ubiqum.com",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "mypwd1234",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
 		}
 	]
 }

@@ -9,25 +9,18 @@ class Cities extends Component {
     this.props.getCities();
   }
   render() {
-    //STUCK HERE HOW TO PRINT THE CITIES???
-    const cities = this.props;
-
-    let citiesItems; //initialization
-
-    if (cities === null) {
-      citiesItems = <h4>Loading...</h4>;
-    } else {
-      //citiesItems = cities.map(city => <Cities key={city._id} city={city} />);
-
-      citiesItems = <h1>THERE R CITIES</h1>;
-    }
+    const cities = this.props.cities || [];
 
     return (
       <div className="cities">
         <div className="container">
           <div className="row">
             <div className="col-mn12">
-              <h1 className="display-4"> CITIES...</h1>
+              <h1 className="lead">
+                {cities.map(function(item, i) {
+                  return <li key={i}>{item.name}</li>;
+                })}
+              </h1>
             </div>
           </div>
         </div>
@@ -37,7 +30,7 @@ class Cities extends Component {
 }
 
 const mapStateToProps = state => ({
-  cities: state.cities
+  cities: state.city.cities
 });
 
 Cities.prototypes = {
