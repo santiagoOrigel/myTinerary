@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 
@@ -17,6 +19,13 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  //This method get the errors from Redux State and put into props and will be send to the errors in the Constructor
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
+  }
+
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
@@ -30,14 +39,12 @@ class Register extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-
+    console.log(newUser);
     this.props.registerUser(newUser, this.props.history);
   }
 
   render() {
-    const { errors } = this.state;
-
-    //const { user } = this.props.auth; NOT NEEDED BY NOW.
+    const { errors } = this.state; //This will be used to Validate Inputs
 
     return (
       <div className="register">
@@ -46,7 +53,7 @@ class Register extends Component {
             <div className="col-md-8 m-auto">
               <h1 className="display-4 text-center">Sign Up</h1>
               <p className="lead text-center">Create your MyTinerary account</p>
-              <form noValidate onSubmit={this.onSubmit}>
+              <form onSubmit={this.onSubmit}>
                 <div className="form-group">
                   <input
                     type="text"
@@ -104,6 +111,12 @@ class Register extends Component {
   }
 }
 
+Register.proptypes = {
+  registerUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isReqired,
+  errors: PropTypes.object.isRequired
+};
+
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
@@ -112,4 +125,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { registerUser }
-)(Register);
+)(withRouter(Register));

@@ -4,7 +4,7 @@
   "description": "activity scheduler by hours",
   "main": "index.js",
   "scripts": {
-    "client-install": "npm install --prefix cient",
+    "client-install": "npm install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",

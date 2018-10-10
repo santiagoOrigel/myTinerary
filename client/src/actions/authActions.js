@@ -1,7 +1,7 @@
 import axios from "axios";
 import { GET_ERRORS, SUCCESS_REGISTRATION_DISPATCH } from "./types";
 
-//Register User
+//Register User by POST and redirection will be performed to / which is the Landing Page defined in App.js in this line: <Route exact path="/" component={Landing} />
 export const registerUser = (userData, history) => dispatch => {
   axios
     .post("/api/users/register", userData)
