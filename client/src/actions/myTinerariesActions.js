@@ -22,9 +22,10 @@ export const getAllMyTineraries = () => dispatch => {
 };
 
 //Get All Mytineraries
-export const getMyTinerariesByCity = () => dispatch => {
+export const getMyTinerariesByCity = (city) => dispatch => {
+    // TODO: it looks like this endpoint needs to get updated
   axios
-    .get("api/mytineraries/:city")
+    .get(`api/mytineraries/${ city }`)
     .then(res =>
       dispatch({
         type: GET_ALL_MYTINERARIES,

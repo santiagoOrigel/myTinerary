@@ -50,7 +50,7 @@ class Cities extends Component {
                 {cities.map((city, i) => {
                   return (
                     <li key={i}>
-                      <Link to={`/mytineraries/all`}>{city.name}</Link>
+                      <Link to={`/mytineraries/${city.name}`}>{city.name}</Link>
                     </li>
                   );
                 })}
