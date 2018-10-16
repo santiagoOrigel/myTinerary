@@ -11,25 +11,24 @@ const City = require("../../models/City");
 // Load Mytinerary model
 const Mytinerary = require("../../models/Mytinerary");
 
-// @route   GET api/cities/activity/all
-// @desc    Get all activities
+// @route   GET api/mytineraries/all
+// @desc    Get All myTineraries
 // @access  Public
 router.get("/all", (req, res) => {
-  const cities = [];
-  const newCity = new City();
-  Mytinerary.find().then(cities => {
-    res.json(cities);
+  const myTineraries = [];
+  Mytinerary.find().then(myTineraries => {
+    res.json(myTineraries);
   });
 });
 
-// @route   GET api/cities/all
-// @desc    Get all cities
+// @route   GET api/mytineraries/:city
+// @desc    Get myTineraries by city
 // @access  Public
 router.get("/:city", (req, res) => {
   const mytineraries = null;
 
   Mytinerary.find({ city: req.params.city })
-    .populate("activities")
+    //.populate("activities")
     .then(mytineraries => {
       if (mytineraries.length === 0) {
         return res.status(400).json({

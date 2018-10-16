@@ -8,6 +8,7 @@ import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Cities from "./components/location/Cities";
+import Mytineraries from "./components/location/itinerary/Mytineraries";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Register} />
               <Route exact path="/cities" component={Cities} />
+              <Route path="/myTineraries/:city" component={Mytineraries} />
             </div>
             <Footer />
           </div>

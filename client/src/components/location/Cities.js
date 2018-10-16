@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Proptypes from "prop-types";
-//import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getCities } from "../../actions/cityActions";
 
@@ -48,7 +48,11 @@ class Cities extends Component {
             <div className="col-mn12">
               <h1 className="lead">
                 {cities.map((city, i) => {
-                  return <li key={i}>{city.name}</li>;
+                  return (
+                    <li key={i}>
+                      <Link to={`/mytineraries/all`}>{city.name}</Link>
+                    </li>
+                  );
                 })}
               </h1>
             </div>

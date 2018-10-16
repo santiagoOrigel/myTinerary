@@ -1,9 +1,8 @@
 import axios from "axios";
 import { GET_CITIES } from "./types";
 
-//Get cities
+//Get All cities
 export const getCities = () => dispatch => {
-  //dispatch(setCitiesLoading());
   axios
     .get("api/cities/all")
     .then(res =>
