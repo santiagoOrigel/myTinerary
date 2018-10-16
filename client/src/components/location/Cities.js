@@ -24,14 +24,11 @@ class Cities extends Component {
   }
 
   render() {
-    let filteredCities = [];
-    const cities = this.props.cities || [];
-    const search = this.state;
+    let cities = this.props.cities || [];
+    const search = this.state.search;
 
-    filteredCities = cities;
-
-    filteredCities.filter(city => {
-      return city.name.toLowerCase().indexOf(search.search.toLowerCase) !== -1;
+    cities = cities.filter(city => {
+      return city.name.toLowerCase().indexOf(search.toLowerCase()) !== -1;
     });
 
     return (
@@ -50,8 +47,8 @@ class Cities extends Component {
           <div className="row">
             <div className="col-mn12">
               <h1 className="lead">
-                {filteredCities.map(city => {
-                  return <li key={city.id}>{city.name}</li>;
+                {cities.map((city, i) => {
+                  return <li key={i}>{city.name}</li>;
                 })}
               </h1>
             </div>
