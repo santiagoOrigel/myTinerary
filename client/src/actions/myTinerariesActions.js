@@ -1,9 +1,7 @@
 import axios from "axios";
-import { GET_MYTINERARIES_BY_CITY } from "./types";
-import { GET_ALL_MYTINERARIES } from "./types";
-import { request } from "http";
+import { GET_MYTINERARIES_BY_CITY, GET_ALL_MYTINERARIES } from "./types";
 
-//Get myTineraries
+//Get ALlmyTineraries
 export const getAllMyTineraries = () => dispatch => {
   axios
     .get("/api/mytineraries/all")
@@ -21,19 +19,19 @@ export const getAllMyTineraries = () => dispatch => {
     );
 };
 
-//Get All Mytineraries
-export const getMyTinerariesByCity = () => dispatch => {
+//Get myTineraries by City
+export const getMyTinerariesByCity = city => dispatch => {
   axios
-    .get("api/mytineraries/:city")
+    .get(`/api/mytineraries/${city}`)
     .then(res =>
       dispatch({
-        type: GET_ALL_MYTINERARIES,
+        type: GET_MYTINERARIES_BY_CITY,
         payload: res.data
       })
     )
     .catch(err =>
       dispatch({
-        type: GET_ALL_MYTINERARIES,
+        type: GET_MYTINERARIES_BY_CITY,
         payload: {}
       })
     );

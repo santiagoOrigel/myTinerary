@@ -24,7 +24,11 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Register} />
               <Route exact path="/cities" component={Cities} />
-              <Route path="/myTineraries/:city" component={Mytineraries} />
+              <Route
+                exact
+                path="/myTineraries/:city"
+                component={Mytineraries}
+              />
             </div>
             <Footer />
           </div>

@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getAllMyTineraries } from "../../../actions/myTinerariesActions";
+import { getMyTinerariesByCity } from "../../../actions/myTinerariesActions";
 
 class Mytineraries extends Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
-    this.props.getAllMyTineraries();
+    if (this.props.match.params.city) {
+      this.props.getMyTinerariesByCity(this.props.match.params.city);
+    }
   }
 
   render() {
@@ -39,10 +37,10 @@ const mapStateToProps = state => ({
 });
 
 Mytineraries.prototypes = {
-  getAllMyTineraries: Proptypes.array.isRequired
+  getMyTinerariesByCity: Proptypes.array.isRequired
 };
 
 export default connect(
   mapStateToProps,
-  { getAllMyTineraries }
+  { getMyTinerariesByCity }
 )(Mytineraries);
