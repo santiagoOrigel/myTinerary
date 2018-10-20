@@ -1,6 +1,9 @@
 img {
   width: 100%;
 }
+.trash {
+  width: 2%;
+}
 
 .landing {
   position: relative;

@@ -13,14 +13,14 @@ class Cities extends Component {
     this.updateSearch = this.updateSearch.bind(this);
   }
 
-  componentDidMount() {
-    this.props.getCities();
-  }
-
   updateSearch(event) {
     this.setState({
       search: event.target.value.substr(0, 20)
     });
+  }
+
+  componentDidMount() {
+    this.props.getCities();
   }
 
   render() {
@@ -33,28 +33,30 @@ class Cities extends Component {
 
     return (
       <div className="cities">
-        <form>
-          <input
-            type="text"
-            className="form-control form-control-lg"
-            placeholder="Search for city"
-            name="cityFilter"
-            value={this.state.search}
-            onChange={this.updateSearch}
-          />
-        </form>
-        <div className="container">
-          <div className="row">
-            <div className="col-mn12">
-              <h1 className="lead">
-                {cities.map((city, i) => {
-                  return (
-                    <li key={i}>
-                      <Link to={`/mytineraries/${city.name}`}>{city.name}</Link>
-                    </li>
-                  );
-                })}
-              </h1>
+        <input
+          type="text"
+          className="form-control form-control-lg"
+          placeholder="Search for city"
+          name="cityFilter"
+          value={this.state.search}
+          onChange={this.updateSearch}
+        />
+        <div className="cities">
+          <div className="container">
+            <div className="row">
+              <div className="col-mn12">
+                <h1 className="lead">
+                  {cities.map((city, i) => {
+                    return (
+                      <li key={i}>
+                        <Link to={`/mytineraries/${city.name}`}>
+                          {city.name}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </h1>
+              </div>
             </div>
           </div>
         </div>

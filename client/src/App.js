@@ -9,6 +9,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Cities from "./components/location/Cities";
 import Mytineraries from "./components/location/itinerary/Mytineraries";
+import Activities from "./components/location/itinerary/activity/Activities";
 
 import "./App.css";
 
@@ -26,8 +27,13 @@ class App extends Component {
               <Route exact path="/cities" component={Cities} />
               <Route
                 exact
-                path="/myTineraries/:city"
+                path="/mytineraries/:city"
                 component={Mytineraries}
+              />
+              <Route
+                exact
+                path="/activities/:mytinerary"
+                component={Activities}
               />
             </div>
             <Footer />

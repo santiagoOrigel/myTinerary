@@ -21,7 +21,13 @@ class Mytineraries extends Component {
             <div className="col-mn12">
               <h1 className="lead">
                 {myTineraries.map((myTinerary, i) => {
-                  return <li key={i}>{myTinerary.title}</li>;
+                  return (
+                    <li key={i}>
+                      <Link to={`/activities/${myTinerary.title}`}>
+                        {myTinerary.title}
+                      </Link>
+                    </li>
+                  );
                 })}
               </h1>
             </div>
