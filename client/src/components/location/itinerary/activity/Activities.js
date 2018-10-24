@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Proptypes from "prop-types";
-import { Link } from "react-router-dom";
+
 import { connect } from "react-redux";
 import { getActivitiesByMyTinerary } from "../../../../actions/activitiesActions";
+import Slider from "react-animated-slider";
+import "react-animated-slider/build/horizontal.css";
+
 class Activities extends Component {
   componentDidMount() {
     if (this.props.match.params.mytinerary) {
@@ -17,40 +20,15 @@ class Activities extends Component {
       <div className="activities">
         <div className="container">
           <div className="row">
-            <div className="col-mn12">
-              <h1 className="lead">
-                <tr>
-                  <th />
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <th>TITLE </th>{" "}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  &nbsp;&nbsp;
-                  <th>AUTHOR</th>{" "}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <th>PRICE</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <th>ADRESS</th>{" "}
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <th>FAVORITE</th> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </tr>
-                {activities.map((activity, i) => {
-                  return (
-                    <li key={i}>
-                      {activity.title} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      {activity.author} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      {activity.price}{" "}
-                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      {activity.adress} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                      <img
-                        src={require("../../../../img/trash.png")}
-                        alt=""
-                        width="2%"
-                        className="trash"
-                      />
-                    </li>
-                  );
-                })}
-              </h1>
-            </div>
+            <Slider>
+              {activities.map((activity, index) => (
+                <div key={index}>
+                  <h2>{activity.title}</h2>
+
+                  <div>{activity.description}</div>
+                </div>
+              ))}
+            </Slider>
           </div>
         </div>
       </div>

@@ -5,12 +5,22 @@ img {
   width: 2%;
 }
 
+.landingWelcome {
+  font-size: 4.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: black;
+}
+
+.landingIcons {
+  width: 20%;
+}
 .landing {
   position: relative;
   background: url("./img/showcase.jpg") no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 90vh;
   margin-top: -24px;
   margin-bottom: -50px;
 }

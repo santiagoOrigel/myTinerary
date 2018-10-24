@@ -9,6 +9,34 @@ class Landing extends Component {
 
     return (
       <div className="landing">
+        &nbsp;&nbsp;
+        <img
+          src={require("../../img/music2.png")}
+          alt=""
+          width="2%"
+          className="landingIcons"
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <img
+          src={require("../../img/plain.png")}
+          alt=""
+          width="2%"
+          className="landingIcons"
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <img
+          src={require("../../img/food.png")}
+          alt=""
+          width="2%"
+          className="landingIcons"
+        />
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <img
+          src={require("../../img/train.png")}
+          alt=""
+          width="2%"
+          className="landingIcons"
+        />
         {user ? (
           <h1 className="landing-inner text-light align:center">
             WELCOME: {user.name}{" "}
@@ -18,7 +46,7 @@ class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">MYtinerary</h1>
+                <h1 className="landingWelcome">MYtinerary</h1>
                 <p className="lead">
                   {" "}
                   Schedule your Itinerary in you favorite City.
