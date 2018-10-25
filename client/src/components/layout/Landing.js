@@ -9,28 +9,28 @@ class Landing extends Component {
 
     return (
       <div className="landing">
-        &nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img
           src={require("../../img/music2.png")}
           alt=""
           width="2%"
           className="landingIcons"
         />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img
           src={require("../../img/plain.png")}
           alt=""
           width="2%"
           className="landingIcons"
         />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img
           src={require("../../img/food.png")}
           alt=""
           width="2%"
           className="landingIcons"
         />
-        &nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img
           src={require("../../img/train.png")}
           alt=""
@@ -47,18 +47,20 @@ class Landing extends Component {
             <div className="row">
               <div className="col-md-12 text-center">
                 <h1 className="landingWelcome">MYtinerary</h1>
-                <p className="lead">
+                <p className="landingDescription">
                   {" "}
-                  Schedule your Itinerary in you favorite City.
+                  Find your perfect trip designed by insders who know and love
+                  their cities.
                 </p>
                 <hr />
-                <Link to="/register" className="btn btn-lg btn-info mr-2">
-                  Sign Up
+                <Link className="nav-link" to="/cities">
+                  <img
+                    src={require("../../img/right.png")}
+                    alt=""
+                    width="2%"
+                    className="surf"
+                  />
                 </Link>
-
-                <a href="login.html" className="btn btn-lg btn-light">
-                  Login
-                </a>
               </div>
             </div>
           </div>
