@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import Proptypes from "prop-types";
-
 import { connect } from "react-redux";
-import { getActivitiesByMyTinerary } from "../../../../actions/activitiesActions";
+import {
+  getActivitiesByMyTinerary,
+  getPostsByMyTinerary
+} from "../../../../actions/activitiesActions";
+
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 
@@ -11,9 +14,14 @@ class Activities extends Component {
     if (this.props.match.params.mytinerary) {
       this.props.getActivitiesByMyTinerary(this.props.match.params.mytinerary);
     }
+
+    if (this.props.match.params.mytinerary) {
+      this.props.getPostsByMyTinerary(this.props.match.params.mytinerary);
+    }
   }
 
   render() {
+    let posts = this.props.posts || [];
     let activities = this.props.activities || [];
 
     return (
@@ -29,6 +37,15 @@ class Activities extends Component {
                 </div>
               ))}
             </Slider>
+            <div className="col-mn12">
+              <h1 className="lead">
+                {posts.map((post, index) => (
+                  <div key={index}>
+                    <h2>{post.description}</h2>
+                  </div>
+                ))}
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -36,15 +53,20 @@ class Activities extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  activities: state.activity.activities
-});
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    activities: state.activity.activities,
+    posts: state.post.posts
+  };
+};
 
-Activities.prototypes = {
+Activities.Proptypes = {
+  getPostsByMyTinerary: Proptypes.array.isRequired,
   getActivitiesByMyTinerary: Proptypes.array.isRequired
 };
 
 export default connect(
   mapStateToProps,
-  { getActivitiesByMyTinerary }
+  { getActivitiesByMyTinerary, getPostsByMyTinerary }
 )(Activities);

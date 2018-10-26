@@ -6,9 +6,9 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
-          <a className="navbar-brand" href="landing.html">
-            Free_Available_Link
-          </a>
+          <Link className="nav-link" to="/posts/add">
+            Add Post
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

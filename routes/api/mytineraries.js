@@ -6,8 +6,8 @@ const router = express.Router();
 // @access  Public
 router.get("/test", (req, res) => res.json({ msg: "mytineraries Works" }));
 
-// Load City model
-const City = require("../../models/City");
+// Load Post model
+const Post = require("../../models/Post");
 // Load Mytinerary model
 const Mytinerary = require("../../models/Mytinerary");
 
@@ -21,6 +21,7 @@ router.get("/all", (req, res) => {
   });
 });
 
+/* THIS WORKS.
 // @route   GET api/mytineraries/:city
 // @desc    Get myTineraries by city
 // @access  Public
@@ -29,6 +30,23 @@ router.get("/:city", (req, res) => {
 
   Mytinerary.find({ city: req.params.city })
     //.populate("activities")
+    .then(mytineraries => {
+      if (mytineraries.length === 0) {
+        return res.status(400).json({
+          mytineraries: "No mytineraries for such City."
+        });
+      }
+      res.json(mytineraries);
+    });
+});*/
+
+//TRY TO GET MYTINERARIES BELONGING A CITY WITH ITS POSTS:
+router.get("/:city", (req, res) => {
+  const mytineraries = null;
+
+  Mytinerary.find({ city: req.params.city })
+    .populate("posts")
+
     .then(mytineraries => {
       if (mytineraries.length === 0) {
         return res.status(400).json({

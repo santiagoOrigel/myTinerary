@@ -1,5 +1,9 @@
 import axios from "axios";
-import { GET_ACTIVITIES_BY_MYTINERARY, GET_ALL_ACTIVITIES } from "./types";
+import {
+  GET_ACTIVITIES_BY_MYTINERARY,
+  GET_ALL_ACTIVITIES,
+  GET_POSTS_BY_MYTINERARY
+} from "./types";
 
 //Get AllActivities
 export const getAllActivities = () => dispatch => {
@@ -19,7 +23,7 @@ export const getAllActivities = () => dispatch => {
     );
 };
 
-//Get myTineraries by mytinerarygtrgthythyt fix me
+//Get activities by mytinerary
 export const getActivitiesByMyTinerary = mytinerary => dispatch => {
   axios
     .get(`/api/activities/${mytinerary}`)
@@ -32,6 +36,24 @@ export const getActivitiesByMyTinerary = mytinerary => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_ACTIVITIES_BY_MYTINERARY,
+        payload: {}
+      })
+    );
+};
+
+//Get posts by mytinerary
+export const getPostsByMyTinerary = mytinerary => dispatch => {
+  axios
+    .get(`/api/posts/${mytinerary}`)
+    .then(res =>
+      dispatch({
+        type: GET_POSTS_BY_MYTINERARY,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_POSTS_BY_MYTINERARY,
         payload: {}
       })
     );

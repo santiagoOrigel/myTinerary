@@ -1,30 +1,23 @@
 import {
-  GET_ALL_ACTIVITIES,
-  GET_ACTIVITIES_BY_MYTINERARY,
+  ADD_POST_BY_MYTINERARY,
   GET_POSTS_BY_MYTINERARY
 } from "../actions/types";
 
 const initialState = {
-  activities: null,
   posts: null
 };
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case GET_ALL_ACTIVITIES:
+    case ADD_POST_BY_MYTINERARY:
       return {
         ...state,
-        activities: action.payload
-      };
-    case GET_ACTIVITIES_BY_MYTINERARY:
-      return {
-        ...state,
-        activities: action.payload
+        posts: action.payload
       };
     case GET_POSTS_BY_MYTINERARY:
       return {
         ...state,
-        posts: action.payload
+        posts: action.payload //, ...state.posts]
       };
     default:
       return state;

@@ -7,20 +7,53 @@
 	"variables": [],
 	"order": [
 		"e2deb4fe-e567-4a9b-8b0c-b644460a2ced",
+		"06766d15-1189-4be7-ae00-890fd31b155d",
 		"8aeac783-2eb6-494a-8410-7872c57fe81a",
 		"471161f8-ce26-4e07-a48f-14e604defca6",
 		"2005e4e6-f8da-4f32-957a-0c04af8cccab",
+		"a70930b1-b024-480e-9446-be37a09387db",
 		"f9e6d58a-7554-45cd-b723-48b38a03ff66",
 		"75317561-9979-4ca3-89d4-2b4ef1585e34",
 		"08f89f63-edd2-4016-89c2-485ffeab20af",
 		"4d9ab593-a3e1-4cab-a173-1a32542057ff",
 		"f1143eef-3782-4a6b-a9c8-59f0acd02b35",
 		"0c1c63ee-ba5a-4fe9-b03a-a85ad0041ff4",
+		"f374d8b3-928c-4585-9886-8e1aa1419547",
 		"658120b5-2031-4cb5-ac39-98123751be4e"
 	],
 	"folders_order": [],
 	"folders": [],
 	"requests": [
+		{
+			"id": "06766d15-1189-4be7-ae00-890fd31b155d",
+			"name": "add Post",
+			"url": "localhost:5000/api/posts/add/gaudi in a day",
+			"description": "add Post",
+			"data": [
+				{
+					"key": "description",
+					"value": "POST 20",
+					"description": "",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "urlencoded",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/x-www-form-urlencoded"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"pathVariables": {}
+		},
 		{
 			"id": "08f89f63-edd2-4016-89c2-485ffeab20af",
 			"name": "myTinerary by city",
@@ -178,6 +211,23 @@
 			"pathVariables": {}
 		},
 		{
+			"id": "a70930b1-b024-480e-9446-be37a09387db",
+			"name": "posts static test",
+			"url": "localhost:5000/api/posts/test",
+			"description": "posts static test",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
 			"id": "e2deb4fe-e567-4a9b-8b0c-b644460a2ced",
 			"name": "user registration",
 			"url": "http://localhost:80/api/users/register",
@@ -226,6 +276,23 @@
 			"name": "activities static test",
 			"url": "localhost:5000/api/activities/test",
 			"description": "",
+			"data": null,
+			"dataMode": "",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "f374d8b3-928c-4585-9886-8e1aa1419547",
+			"name": "all posts by mytinerary",
+			"url": "localhost:5000/api/posts/gaudi in a day",
+			"description": "all posts by mytinerary",
 			"data": null,
 			"dataMode": "",
 			"headerData": [],

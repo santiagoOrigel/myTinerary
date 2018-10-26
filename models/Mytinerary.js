@@ -22,7 +22,13 @@ const MytinerarySchema = new Schema({
   theme: {
     type: String,
     required: true
-  }
+  },
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "posts"
+    }
+  ]
 });
 
 module.exports = Mytinerary = mongoose.model("mytineraries", MytinerarySchema);

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getCities } from "../../actions/cityActions";
+import { getCities } from "../../actions/citiesActions";
 
 class Cities extends Component {
   constructor() {
@@ -69,7 +69,7 @@ const mapStateToProps = state => ({
   cities: state.city.cities
 });
 
-Cities.prototypes = {
+Cities.Proptypes = {
   getCities: Proptypes.array.isRequired
 };
 

@@ -10,6 +10,7 @@ import Register from "./components/auth/Register";
 import Cities from "./components/location/Cities";
 import Mytineraries from "./components/location/itinerary/Mytineraries";
 import Activities from "./components/location/itinerary/activity/Activities";
+import Posts from "./components/location/itinerary/posts/Posts";
 
 import "./App.css";
 
@@ -35,6 +36,7 @@ class App extends Component {
                 path="/activities/:mytinerary"
                 component={Activities}
               />
+              <Route exact path="/posts/add" component={Posts} />
             </div>
             <Footer />
           </div>

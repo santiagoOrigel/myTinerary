@@ -42,7 +42,7 @@ const mapStateToProps = state => ({
   myTineraries: state.myTinerary.myTineraries
 });
 
-Mytineraries.prototypes = {
+Mytineraries.Proptypes = {
   getMyTinerariesByCity: Proptypes.array.isRequired
 };
 
