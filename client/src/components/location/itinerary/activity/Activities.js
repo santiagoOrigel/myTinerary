@@ -10,6 +10,13 @@ import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 
 class Activities extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isVisible: false
+        }
+    }
+
   componentDidMount() {
     if (this.props.itinerary) {
       this.props.getActivitiesByMyTinerary(this.props.itinerary);
@@ -17,12 +24,17 @@ class Activities extends Component {
     }
   }
 
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.isVisible)
+        this.setState({ isVisible: nextProps.isVisible });
+    }
+
   render() {
     const posts = Array.isArray(this.props.posts) ? this.props.posts : [];
     const activities = this.props.activities || [];
 
     return (
-      <div className="activities">
+      <div className="activities" style={{display: this.state.isVisible ? 'inline' : 'none'}}>
         <div className="container">
           <div className="row">
             <Slider>
