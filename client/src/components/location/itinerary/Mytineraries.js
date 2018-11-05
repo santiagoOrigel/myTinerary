@@ -3,6 +3,7 @@ import Proptypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getMyTinerariesByCity } from "../../../actions/myTinerariesActions";
+import Activities from "./activity/Activities";
 
 class Mytineraries extends Component {
   componentDidMount() {
@@ -23,9 +24,8 @@ class Mytineraries extends Component {
                 {myTineraries.map((myTinerary, i) => {
                   return (
                     <li key={i}>
-                      <Link to={`/activities/${myTinerary.title}`}>
-                        {myTinerary.title}
-                      </Link>
+                        { myTinerary.title }
+                      <Activities itinerary={myTinerary.title}/>
                     </li>
                   );
                 })}
