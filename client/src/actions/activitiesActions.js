@@ -36,7 +36,7 @@ export const getActivitiesByMyTinerary = mytinerary => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_ACTIVITIES_BY_MYTINERARY,
-        payload: {}
+        payload: []
       })
     );
 };

@@ -34,7 +34,7 @@ export const getPostsByMyTinerary = mytinerary => dispatch => {
     .catch(err =>
       dispatch({
         type: GET_POSTS_BY_MYTINERARY,
-        payload: {}
+        payload: []
       })
     );
 };
